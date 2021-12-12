@@ -9,10 +9,16 @@
 
     <div class="panel-body">
         <ul class="nav nav-pills nav-stacked">
+            {{ $pageCategories := .Params.categories }}
             {{ $current := . }}
             {{ range $name, $items := .Site.Taxonomies.categories }}
             <li{{ if eq $current.RelPermalink ($name | urlize | lower | printf "/categories/%s/") }} class="active"{{ end }}>
-                <a href="{{ "categories/" | relLangURL }}{{ $name | urlize | lower }}">{{ $name | upper }} ({{ len $items }})</a>
+                <a href="{{ "categories/" | relLangURL }}{{ $name | urlize | lower }}">
+                    {{ if in $pageCategories $name }}
+                        <b> {{ $name | upper }} ({{ len $items }}) </b>
+                        {{ else }} 
+                            {{ $name | upper }} ({{ len $items }}) 
+                    {{ end }}</a>
             </li>
             {{ end }}
         </ul>
