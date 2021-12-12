@@ -36,9 +36,12 @@
                               {{ end }}
                               {{ $createdAt }}
                             {{ end }}
+                            <br/>
+                              {{ range  $items, $name := .Params.tags }}
+                              <a style="font-size: x-small;" href="{{ "tags/" | relURL }}{{ $name | urlize | lower }}"><i class="fas fa-tags"></i> {{ $name }}</a>
+                            {{ end }}
                           </p>
                         {{ end }}
-
                         <div id="post-content">
                           {{ .Content }}
                         </div>
