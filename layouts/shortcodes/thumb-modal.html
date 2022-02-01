@@ -1,0 +1,16 @@
+{{ $imagename := printf "%s*" (.Get 0) }}
+{{ $imagealt := default "" (.Get 1) }}
+{{ $imagefile := path.Base (.Get 0) }}
+{{ $imageid := print $imagefile "-" ($imagename | base64Encode)}}
+{{ $size := default "600x" (.Get 2)}}
+{{ $imageoriginal := default (.Get 0) (.Page.Resources.GetMatch $imagename) }}
+{{/* $imagethumbnail := $imageoriginal.Resize $size */}}
+
+
+<img onclick="openModal(this)" class="pre-modal" id="{{ $imageid }}" src="{{ $imageoriginal }}" alt="{{ $imagealt }}" style="max-width:100%">
+
+<div id="{{ $imageid }}-modal" class="modal">
+  <span class="close" id="{{ $imageid }}-modal-close">&times;</span>
+  <img class="modal-content" id="{{ $imageid }}-modal-img">
+  <div class="modal-caption" id="{{ $imageid }}-modal-caption"></div>
+</div>
