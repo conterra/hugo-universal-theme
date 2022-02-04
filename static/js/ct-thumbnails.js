@@ -13,6 +13,9 @@ function openModal(image) {
     span.onclick = function() { 
         modal.style.display = "none";
     }
+    modal.onclick = function() {
+        modal.style.display = "none";
+    }
     document.onkeydown = function(evt) { 
         if (evt && (evt.key === "Esc" || evt.key === "Escape")) {
             modal.style.display = "none";

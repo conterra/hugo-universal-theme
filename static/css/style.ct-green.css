@@ -3587,6 +3587,13 @@ body {
     cursor: pointer;
     transition: 0.3s;
   }
+
+  .pre-modal-figure {
+    padding-bottom: 0.5em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
       
   .pre-modal:hover {
     opacity: 0.7;
