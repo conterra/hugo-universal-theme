@@ -1,0 +1,2 @@
+<!-- For Markdown Render Hooks see https://gohugo.io/templates/render-hooks/ and https://gohugo.io/functions/safeurl/ -->
+<a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank"{{ end }}>{{ .Text }}</a>
